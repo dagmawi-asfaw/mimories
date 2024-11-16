@@ -9,22 +9,22 @@ import 'package:mimories/services/services.dart';
 import '../app/app.locator.dart';
 
 class UserService {
-
   final logger = getLogger('Users Service');
 
   final ApiService _apiService = locator<ApiService>();
 
-  Future<List<UserModel>> getUsers()async {
+  Future<List<UserModel>> getUsers() async {
 
-  String result = await  _apiService.get('/users');
+    // get data from api service
+    List<dynamic> data = await _apiService.get('/users');
 
-  List<UserModel> users = [];
 
-  UserModel.fromJson(result as Map<String, Object?>);
+    //convert data list to list of user models
+    List<UserModel> users = data
+        .map((res) => UserModel.fromJson(res))
+        .toList();
 
- // UserModel user = UserModel.fromJson();
-  logger.log(Logger.level,jsonDecode(result));
- // logger.log(Logger.level,user);
+    //return users
     return users;
   }
 }

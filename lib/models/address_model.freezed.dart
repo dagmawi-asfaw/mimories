@@ -27,7 +27,7 @@ mixin _$AddressModel {
   @JsonKey(name: 'city')
   String get city => throw _privateConstructorUsedError;
   @JsonKey(name: 'email')
-  String get email => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
   @JsonKey(name: 'zipcode')
   String get zipcode => throw _privateConstructorUsedError;
   @JsonKey(name: 'geo')
@@ -53,7 +53,7 @@ abstract class $AddressModelCopyWith<$Res> {
       {@JsonKey(name: 'street') String street,
       @JsonKey(name: 'suite') String suite,
       @JsonKey(name: 'city') String city,
-      @JsonKey(name: 'email') String email,
+      @JsonKey(name: 'email') String? email,
       @JsonKey(name: 'zipcode') String zipcode,
       @JsonKey(name: 'geo') LocationModel location});
 
@@ -78,7 +78,7 @@ class _$AddressModelCopyWithImpl<$Res, $Val extends AddressModel>
     Object? street = null,
     Object? suite = null,
     Object? city = null,
-    Object? email = null,
+    Object? email = freezed,
     Object? zipcode = null,
     Object? location = null,
   }) {
@@ -95,10 +95,10 @@ class _$AddressModelCopyWithImpl<$Res, $Val extends AddressModel>
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as String,
-      email: null == email
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       zipcode: null == zipcode
           ? _value.zipcode
           : zipcode // ignore: cast_nullable_to_non_nullable
@@ -133,7 +133,7 @@ abstract class _$$AddressModelImplCopyWith<$Res>
       {@JsonKey(name: 'street') String street,
       @JsonKey(name: 'suite') String suite,
       @JsonKey(name: 'city') String city,
-      @JsonKey(name: 'email') String email,
+      @JsonKey(name: 'email') String? email,
       @JsonKey(name: 'zipcode') String zipcode,
       @JsonKey(name: 'geo') LocationModel location});
 
@@ -157,7 +157,7 @@ class __$$AddressModelImplCopyWithImpl<$Res>
     Object? street = null,
     Object? suite = null,
     Object? city = null,
-    Object? email = null,
+    Object? email = freezed,
     Object? zipcode = null,
     Object? location = null,
   }) {
@@ -174,10 +174,10 @@ class __$$AddressModelImplCopyWithImpl<$Res>
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as String,
-      email: null == email
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       zipcode: null == zipcode
           ? _value.zipcode
           : zipcode // ignore: cast_nullable_to_non_nullable
@@ -197,7 +197,7 @@ class _$AddressModelImpl implements _AddressModel {
       {@JsonKey(name: 'street') required this.street,
       @JsonKey(name: 'suite') required this.suite,
       @JsonKey(name: 'city') required this.city,
-      @JsonKey(name: 'email') required this.email,
+      @JsonKey(name: 'email') this.email,
       @JsonKey(name: 'zipcode') required this.zipcode,
       @JsonKey(name: 'geo') required this.location});
 
@@ -215,7 +215,7 @@ class _$AddressModelImpl implements _AddressModel {
   final String city;
   @override
   @JsonKey(name: 'email')
-  final String email;
+  final String? email;
   @override
   @JsonKey(name: 'zipcode')
   final String zipcode;
@@ -268,7 +268,7 @@ abstract class _AddressModel implements AddressModel {
           {@JsonKey(name: 'street') required final String street,
           @JsonKey(name: 'suite') required final String suite,
           @JsonKey(name: 'city') required final String city,
-          @JsonKey(name: 'email') required final String email,
+          @JsonKey(name: 'email') final String? email,
           @JsonKey(name: 'zipcode') required final String zipcode,
           @JsonKey(name: 'geo') required final LocationModel location}) =
       _$AddressModelImpl;
@@ -287,7 +287,7 @@ abstract class _AddressModel implements AddressModel {
   String get city;
   @override
   @JsonKey(name: 'email')
-  String get email;
+  String? get email;
   @override
   @JsonKey(name: 'zipcode')
   String get zipcode;

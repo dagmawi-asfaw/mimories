@@ -15,11 +15,12 @@ class ApiService {
     ),
   );
 
-  Future<String> get(String route) async {
-    Response res = await _dio.get(route);
-  String jsonData =   jsonEncode(res.data);
-  //String ata =   jsonDecode(res.data);
- // logger.log(Logger.level, ata);
-    return jsonData;
+  Future<List<dynamic>> get(String route) async {
+
+    //get users
+    Response result = await _dio.get(route);
+
+    //return data
+    return result.data;
   }
 }

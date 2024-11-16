@@ -7,15 +7,19 @@ class HomePageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // rebuildUi();
     return ViewModelBuilder.reactive(
       onViewModelReady: (viewModel) => viewModel.fetchUserList(),
       viewModelBuilder: () => HomepageViewModel(),
       builder: (context, model, child) => Scaffold(
         backgroundColor: Colors.yellow,
-        body: Center(
-          child: Text(model.title),
-        ),
+        body:model.status == STATUS.success ?   Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: model.users.map((user)=> Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Text('${user.name} from ${user.address?.city}'),
+          ),).toList(),): const Text('wait for it ...'),
+
       ),
     );
   }

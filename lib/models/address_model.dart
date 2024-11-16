@@ -13,7 +13,7 @@ class AddressModel with _$AddressModel {
     @JsonKey(name: 'street') required String street,
     @JsonKey(name: 'suite') required String suite,
     @JsonKey(name: 'city') required String city,
-    @JsonKey(name: 'email') required String email,
+    @JsonKey(name: 'email') String? email,
     @JsonKey(name: 'zipcode') required String zipcode,
     @JsonKey(name: 'geo') required LocationModel location,
   }) = _AddressModel;
