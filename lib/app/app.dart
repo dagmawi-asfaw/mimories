@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:mimories/ui/views/homepage/homepage_view.dart';
+import 'package:mimories/constants/routes_constant.dart';
 import 'package:stacked/stacked_annotations.dart';
-import 'package:stacked_services/stacked_services.dart';
 
 import '../services/services.dart';
-import 'app.router.dart';
 
 @StackedApp(
   logger: StackedLogger(),
-  routes: [
+  routes: [],
+  // @stacked-route
+/*  routes: [
     MaterialRoute(
       page: HomePageView,
+      initial: true,
     ),
-    // @stacked-route
-  ],
+    MaterialRoute(
+      page: MiformView,
+    ),
+// @stacked-route
+  ],*/
   dependencies: [
     LazySingleton(
       classType: ApiService,
@@ -29,10 +33,14 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      navigatorKey: StackedService.navigatorKey,
-      initialRoute: Routes.homePageView,
-      onGenerateRoute: StackedRouter().onGenerateRoute,
+    return MaterialApp.router(
+      routerConfig: router,
     );
+/*    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: Routes.homePageView,
+      navigatorKey: StackedService.navigatorKey,
+      onGenerateRoute: StackedRouter().onGenerateRoute,
+    );*/
   }
 }

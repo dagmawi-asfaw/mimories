@@ -14,15 +14,11 @@ class UserService {
   final ApiService _apiService = locator<ApiService>();
 
   Future<List<UserModel>> getUsers() async {
-
     // get data from api service
     List<dynamic> data = await _apiService.get('/users');
 
-
     //convert data list to list of user models
-    List<UserModel> users = data
-        .map((res) => UserModel.fromJson(res))
-        .toList();
+    List<UserModel> users = data.map((res) => UserModel.fromJson(res)).toList();
 
     //return users
     return users;

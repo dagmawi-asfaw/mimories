@@ -16,7 +16,6 @@ class ApiService {
   );
 
   Future<List<dynamic>> get(String route) async {
-
     //get users
     Response result = await _dio.get(route);
 
