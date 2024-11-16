@@ -36,8 +36,7 @@ class MiformView extends StackedView<MiformViewModel> with $MiformView {
         padding: const EdgeInsets.only(left: 25.0, right: 25.0),
         child: TextField(
           controller: enterPersonNameController,
-          onChanged: (value){
-          },
+          onChanged: (value) {},
         ),
       ),
     );

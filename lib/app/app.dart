@@ -3,11 +3,12 @@ import 'package:mimories/constants/routes_constant.dart';
 import 'package:stacked/stacked_annotations.dart';
 
 import '../services/services.dart';
+import '../ui/views/normalform/normalform_view.dart';
 
 @StackedApp(
   logger: StackedLogger(),
   routes: [],
-  // @stacked-route
+// @stacked-route
 /*  routes: [
     MaterialRoute(
       page: HomePageView,

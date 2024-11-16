@@ -36,7 +36,7 @@ class HomePageView extends StatelessWidget {
                   TextButton(
                     onPressed: () {
                       //navigate to the form page
-                      context.go('/form');
+                      context.go('/normalForm');
                     },
                     child: const Text(
                       'go to the next page',
